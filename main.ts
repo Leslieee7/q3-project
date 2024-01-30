@@ -1,3 +1,37 @@
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSide(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . 1 1 3 . . . . . . 
+        . . . . . . 1 3 . 3 3 . . . . . 
+        . . . . . . 1 . . . 3 2 2 3 . . 
+        . . . . . 1 3 . . . 2 2 1 3 3 . 
+        . . . . . 1 3 . 2 2 3 1 1 1 3 . 
+        . . 2 2 2 1 3 3 3 3 3 1 1 1 3 . 
+        . . 1 1 1 1 3 1 1 1 1 1 1 1 3 . 
+        . . 2 2 2 1 3 3 3 3 3 1 1 1 3 . 
+        . . . . . 1 3 . 2 2 3 1 1 1 3 . 
+        . . . . . 1 3 . . . 2 2 1 3 3 . 
+        . . . . . . 1 . . . 3 2 2 3 . . 
+        . . . . . . 1 3 . 3 3 . . . . . 
+        . . . . . . . 1 1 3 . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, 50, 0)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (p1.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
+    	
+    }
+    if (p2.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
+    	
+    }
+})
+function doSomething () {
+    tiles.setCurrentTilemap(tilemap`test`)
+}
+let projectile: Sprite = null
+let p2: Sprite = null
+let p1: Sprite = null
 scene.setBackgroundColor(15)
 game.splash("...")
 color.startFade(color.Sweet, color.originalPalette)
@@ -123,7 +157,7 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
-let p1 = sprites.create(img`
+p1 = sprites.create(img`
     . . . . . . 5 . 5 . . . . . . . 
     . . . . . f 5 5 5 f f . . . . . 
     . . . . f 1 5 2 5 1 e f . . . . 
@@ -144,7 +178,7 @@ let p1 = sprites.create(img`
 p1.setPosition(1, 1)
 controller.player1.moveSprite(p1, 100, 100)
 tiles.placeOnTile(p1, tiles.getTileLocation(0, 0))
-let p2 = sprites.create(img`
+p2 = sprites.create(img`
     . . . . . f f 4 4 f f . . . . . 
     . . . . f 5 4 5 5 4 5 f . . . . 
     . . . f e 4 5 5 5 5 4 e f . . . 
@@ -171,3 +205,4 @@ splitScreen.setBorderColor(15)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, p1)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, p2)
 p1.setStayInScreen(true)
+doSomething()
