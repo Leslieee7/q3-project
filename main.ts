@@ -17,24 +17,27 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . 1 1 3 . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, 50, 0)
+    bzz_bzz.setPosition(0, randint(0, 120))
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (p1.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
-    	
+function game_start () {
+    let level = 0
+    list = [tilemap`level6`, tilemap`test`, tilemap`level7`]
+    tiles.setCurrentTilemap(list._pickRandom())
+    p1.ax = 0
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`level6`)
+    } else if (level == 2) {
+        tiles.setCurrentTilemap(tilemap`test`)
+    } else if (level == 3) {
+        tiles.setCurrentTilemap(tilemap`level7`)
     }
-    if (p2.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
-    	
-    }
-})
-function doSomething () {
-    tiles.setCurrentTilemap(tilemap`test`)
 }
+let list: tiles.TileMapData[] = []
 let projectile: Sprite = null
-let p2: Sprite = null
+let bzz_bzz: Sprite = null
 let p1: Sprite = null
-scene.setBackgroundColor(15)
-game.splash("...")
 color.startFade(color.Sweet, color.originalPalette)
+game.splash("...")
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -178,7 +181,7 @@ p1 = sprites.create(img`
 p1.setPosition(1, 1)
 controller.player1.moveSprite(p1, 100, 100)
 tiles.placeOnTile(p1, tiles.getTileLocation(0, 0))
-p2 = sprites.create(img`
+let p2 = sprites.create(img`
     . . . . . f f 4 4 f f . . . . . 
     . . . . f 5 4 5 5 4 5 f . . . . 
     . . . f e 4 5 5 5 5 4 e f . . . 
@@ -205,4 +208,25 @@ splitScreen.setBorderColor(15)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, p1)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, p2)
 p1.setStayInScreen(true)
-doSomething()
+p2.setPosition(4, 8)
+controller.player2.moveSprite(p2, 100, 100)
+tiles.placeOnTile(p2, tiles.getTileLocation(2, 0))
+p2.setStayInScreen(true)
+bzz_bzz = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . 1 1 3 . . . . . . 
+    . . . . . . 1 3 . 3 3 . . . . . 
+    . . . . . . 1 . . . 3 2 2 3 . . 
+    . . . . . 1 3 . . . 2 2 1 3 3 . 
+    . . . . . 1 3 . 2 2 3 1 1 1 3 . 
+    . . 2 2 2 1 3 3 3 3 3 1 1 1 3 . 
+    . . 1 1 1 1 3 1 1 1 1 1 1 1 3 . 
+    . . 2 2 2 1 3 3 3 3 3 1 1 1 3 . 
+    . . . . . 1 3 . 2 2 3 1 1 1 3 . 
+    . . . . . 1 3 . . . 2 2 1 3 3 . 
+    . . . . . . 1 . . . 3 2 2 3 . . 
+    . . . . . . 1 3 . 3 3 . . . . . 
+    . . . . . . . 1 1 3 . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Enemy)
