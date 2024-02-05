@@ -1,6 +1,5 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (false) {
-        let mySprite: Sprite = null
         tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
     }
 })
@@ -23,6 +22,11 @@ controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . 1 1 3 . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, 50, 0)
+    if (true) {
+    	
+    } else {
+    	
+    }
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (p1.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
@@ -31,11 +35,33 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (p2.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
     	
     }
+    mySprite = sprites.create(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, SpriteKind.Player)
 })
 function doSomething () {
     tiles.setCurrentTilemap(tilemap`test`)
+    doSomething()
+    game.splash("the  end")
+    music.play(music.createSong(hex`0078000408020100001c00010a006400f401640000040000000000000000000000000005000004580000000400012a08000c0002272c10001400012a1400180002272918001c0001272000240002242524002800012528002c0001272c00300002272930003400012a3400380003252a2c38003c00031d222a3c00400003191d20`), music.PlaybackMode.UntilDone)
 }
 let projectile: Sprite = null
+let mySprite: Sprite = null
 let p2: Sprite = null
 let p1: Sprite = null
 scene.setBackgroundColor(15)
