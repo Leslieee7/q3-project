@@ -1,3 +1,9 @@
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (false) {
+        let mySprite: Sprite = null
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
+    }
+})
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
     projectile = sprites.createProjectileFromSide(img`
         . . . . . . . . . . . . . . . . 
@@ -33,7 +39,7 @@ let projectile: Sprite = null
 let p2: Sprite = null
 let p1: Sprite = null
 scene.setBackgroundColor(15)
-game.splash("...")
+game.splash("")
 color.startFade(color.Sweet, color.originalPalette)
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
