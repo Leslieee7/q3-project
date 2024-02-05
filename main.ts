@@ -1,72 +1,20 @@
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (false) {
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(0, 0))
-    }
+	
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    projectile = sprites.createProjectileFromSide(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . 1 1 3 . . . . . . 
-        . . . . . . 1 3 . 3 3 . . . . . 
-        . . . . . . 1 . . . 3 2 2 3 . . 
-        . . . . . 1 3 . . . 2 2 1 3 3 . 
-        . . . . . 1 3 . 2 2 3 1 1 1 3 . 
-        . . 2 2 2 1 3 3 3 3 3 1 1 1 3 . 
-        . . 1 1 1 1 3 1 1 1 1 1 1 1 3 . 
-        . . 2 2 2 1 3 3 3 3 3 1 1 1 3 . 
-        . . . . . 1 3 . 2 2 3 1 1 1 3 . 
-        . . . . . 1 3 . . . 2 2 1 3 3 . 
-        . . . . . . 1 . . . 3 2 2 3 . . 
-        . . . . . . 1 3 . 3 3 . . . . . 
-        . . . . . . . 1 1 3 . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, 50, 0)
-    if (true) {
+	
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (0 < 0) {
     	
     } else {
     	
     }
 })
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (p1.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
-    	
-    }
-    if (p2.tileKindAt(TileDirection.Left, assets.tile`transparency16`)) {
-    	
-    }
-    mySprite = sprites.create(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, SpriteKind.Player)
-})
 function doSomething () {
-    tiles.setCurrentTilemap(tilemap`test`)
-    doSomething()
-    game.splash("the  end")
-    music.play(music.createSong(hex`0078000408020100001c00010a006400f401640000040000000000000000000000000005000004580000000400012a08000c0002272c10001400012a1400180002272918001c0001272000240002242524002800012528002c0001272c00300002272930003400012a3400380003252a2c38003c00031d222a3c00400003191d20`), music.PlaybackMode.UntilDone)
+	
 }
-let projectile: Sprite = null
-let mySprite: Sprite = null
-let p2: Sprite = null
-let p1: Sprite = null
-scene.setBackgroundColor(15)
-game.splash("")
-color.startFade(color.Sweet, color.originalPalette)
+game.splash("mario2.0")
 scene.setBackgroundImage(img`
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
     9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -189,15 +137,17 @@ scene.setBackgroundImage(img`
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     7777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777
     `)
-p1 = sprites.create(img`
-    . . . . . . 5 . 5 . . . . . . . 
-    . . . . . f 5 5 5 f f . . . . . 
-    . . . . f 1 5 2 5 1 e f . . . . 
-    . . . f 1 e e e e e 1 e f . . . 
-    . . . f e e f f f f e 1 f . . . 
-    . . . f e f f d d f f e f . . . 
-    . . f e f d f d d f d f e f . . 
-    . . f e f d 3 d d 3 d f e f . . 
+tiles.setCurrentTilemap(tilemap`test`)
+info.setLife(3)
+let p1 = sprites.create(img`
+    1 1 . . . . 5 . 5 . . . . . . . 
+    1 . 1 . . f 5 5 5 f f . . . . . 
+    1 1 . . f 1 5 2 5 1 e f . . . . 
+    1 . . f 1 e e e e e 1 e f . . . 
+    . 1 . f e e f f f f e 1 f . . . 
+    1 1 . f e f f d d f f e f . . . 
+    . 1 f e f d f d d f d f e f . . 
+    . 1 f e f d 3 d d 3 d f e f . . 
     . . f e e f d d d d f e e f . . 
     . f e e f 3 f f f f 3 f e e f . 
     . . f f 3 3 5 3 3 5 3 d f f . . 
@@ -207,10 +157,11 @@ p1 = sprites.create(img`
     . . . . f f f f f f f f f . . . 
     . . . . . . . . . f f . . . . . 
     `, SpriteKind.Player)
-p1.setPosition(1, 1)
+tiles.placeOnTile(p1, tiles.getTileLocation(1, 7))
+p1.ay = 300
+p1.setStayInScreen(true)
 controller.player1.moveSprite(p1, 100, 100)
-tiles.placeOnTile(p1, tiles.getTileLocation(0, 0))
-p2 = sprites.create(img`
+let p2 = sprites.create(img`
     . . . . . f f 4 4 f f . . . . . 
     . . . . f 5 4 5 5 4 5 f . . . . 
     . . . f e 4 5 5 5 5 4 e f . . . 
@@ -228,13 +179,12 @@ p2 = sprites.create(img`
     . . . f f 1 d 1 d 1 d f f . . . 
     . . . . . f f b b f f . . . . . 
     `, SpriteKind.Player)
-p2.setPosition(4, 8)
-controller.player2.moveSprite(p2, 100, 100)
-tiles.placeOnTile(p2, tiles.getTileLocation(2, 0))
+tiles.placeOnTile(p2, tiles.getTileLocation(3, 7))
+p2.ay = 300
 p2.setStayInScreen(true)
+controller.player2.moveSprite(p2, 100, 100)
 splitScreen.setSplitScreenEnabled(true)
 splitScreen.setBorderColor(15)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera1, p1)
 splitScreen.cameraFollowSprite(splitScreen.Camera.Camera2, p2)
-p1.setStayInScreen(true)
-doSomething()
+music.play(music.createSong(hex`0078000408020100001c00010a006400f401640000040000000000000000000000000005000004310000000400012008000c00012410001400012518001c00012520002400012728002c00012030003400012738003c00022429`), music.PlaybackMode.UntilDone)
